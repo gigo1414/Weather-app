@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <title>Gi's Weather App</title>
+</head>
+<body>
+    <div class="loader">
+        <div class="ring"></div>
+     </div>
+   <div class="card">
+       <div class="search flex">
+        <input type="text" class="search-bar" placeholder="     ">
+        <button class="sicon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+            width="1.5em" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+            </path>
+          </svg>
+        </button>
+       </div>
+       <h1> Weather in <strong class="city"> </strong> </h1>
+       <h1 class="temp"> </h1>
+       <button class="units-f">Display °F</button>
+       <button class="units-c">Display °C</button>
+       <div class="details">
+           <div class="flex">
+               <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+               <div class="description"></div>
+           </div>
+           <div class="flex">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAACoklEQVRoge2avWsUQRiH3xGDCqJCLEz0MMYU6aP2WihoYlrRQls/QIO2+j8ICn4g9n5EEa4Vwf8gvaJRuUKL0+ZMNrnH4t4hZ9jb3Zmd3b3APrDMsTfvb37v7bw7s8uJFABwAngOLAFtPZb03PEixgwOcA/oMpgucLdqn4kA82o2Ah4AM8A+PY4BD/U7gLmq/Q4E+KAmryb0uaZ93pfpzQngt5rck9Bnr/Zpl+nNCVsEofq5sC2kWJXUiQwbhSSSsIb8VxubTn/MM+YwXZFcxb89lIt+jDEm6Xt7VdL6uTBMVyQXlSZS10gMhdRIVuoaiaH0RIAdfZ+3dI10B5zfWjVijIns4l7XSAx1jeSgrpEk6hrxpa6RsgBGXd+iAKNleMsMcAZoqbmvGfova98WcLoMj6kAV9h4DfoaaGSIaQCLGhMBl8vwmmRoFlij92L6lkf8gsZGwNkiPGYxMQb80l/1Zg6dBdX4CRwI6TGrgWdq4FUALTvNnobw5jJwQ6dDBzgcQG8C+AusAuM+Gr7ryAXpbW/eGGNS71JpGGO+iMhbERlRbWd8Ezmp7aJnfBxW61RAzWSA7zqnJwJqTqrmcijNLIN2dNCdATV3qWbHJ953akXahnwMGNF21SfYN5GWtl53mAFYrR8+wb6JfNJ2xjM+Dqv12SfYN5GmtvOe8XFYrWZir5AAh3RBXAEmA+hNqVYEHAzh0WXwJwVsUR6F8OY6+DjwRw3czqFzRzXalWwa1cQcsK5beedkNIk11ThXhEcXMzfUiH2wOpohZqpvOq0D18vwmoo+YNm/b6wAL4CLwDSwW49p4BLwUne5djpVeyU2A+wH7rPx2JtEBDwGxkKNH+xNn0Vvn+dFZFZEjoiIfYb/Jr3Friki74wxXiv4IP4BYOw77TaZHEgAAAAASUVORK5CYII="/>
+               <div class="feels_like"></div>
+           </div>
+            <div class="flex">
+                <img src="data:image/png;base64,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"/>
+                <div class="humidity"></div>
+            </div>
+            <div class="flex">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAACzklEQVRoge3aS4sUVxjG8VMajBFHE/EaTMYJCIobEVcJAceNZKUulHwBk0VC/AAJ2eQjuBFXUQIBN94QA0Z0ELxlpRBcxBvxlqgRElFnE34u6h2mvXR3dVd1Vyv9h6bo7rfP8zxd55zqOqdTGjJkSGVgJrbgMK5hEnfi+eeYUbfHtmAUZ7XmN6yo22tTsBx3w+x1fIUxvI0PsANX4/2/BjYMzoTJ45jfpGYujkXdhYHsZrgYj1eGaKgbibED2zvU2IS9uIKneITL2ION5RJMi8ws+g3jiwhyoGD96oYz3ooTWFkuSQfgwxC+U6B2HP9F/T38gPV4L7rqWnwb4w4e4JN+5EiYFaKTbepW49+oPdKq22Ie9kftPxir3vnLomMheLNN3emoO1ik22JGQ5iT1TluLrizyBiJQX0dCzpoewR/R/sbyrttLrSooT9vaVM7B+90ofFdtL+7e6etBd6XX9mnZpisRzrrQuNylY3Oxhp8j4ch8AcWVybysub80HnYqmhqAHbLYSzsVYjwODe0Hje+/lbJdidTSrdTShMppX1Zlk2UbK8Iq+J4rfHF54JkWfZpH4yUZWscz9bqogxY2jAWP67bT1fIbxlOTI3Fuv10hfyeZyJC3MLyuj0VRn5xHccuPIkQN7GmyIfLTr+94n/8rMXUXnb67SX3U0p/ppSOp5R+yrLs95r9DBkyZODQu+n3qXyZ6EeMv85BXuQoFvU8UNXIfyetkt+mPogwV7Ckbm9dg2XyJVU4pUe3xH0BC00vim9t/4kBBt9EkIN1eykFVkSQlgt5A4+CS6tFqXMPY2kcmy/rdEClQXSw/ZBS+iyO56r0UAm4FI9329SNyNd9YVu//BXG9IbNr83CRIhfou58B2ewf3h+0/QGvsZHcWUfxZcNZ+IuRuv23BT5jlW7rbTzAx1iihj0m3HI9B8Lbss3dbYPZHcaMuQN5xnjF0yEQktsUAAAAABJRU5ErkJggg=="/>
+                <div class="wind"></div>
+            </div>
+        </div>
+   </div>
+  <script src="script.js"></script>
+</body>
+</html>
